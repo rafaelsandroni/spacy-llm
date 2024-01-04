@@ -78,9 +78,9 @@ class Bedrock(REST):
 
         # Fetch and check the credentials
         profile = os.getenv("AWS_PROFILE") if not None else "default"
-        secret_key_id = os.getenv("AWS_ACCESS_KEY_ID")
-        secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
-        session_token = os.getenv("AWS_SESSION_TOKEN")
+        secret_key_id = os.getenv("BEDROCK_AWS_ACCESS_KEY_ID")
+        secret_access_key = os.getenv("BEDROCK_AWS_SECRET_ACCESS_KEY")
+        session_token = os.getenv("BEDROCK_AWS_SESSION_TOKEN")
 
         if profile is None:
             warnings.warn(
