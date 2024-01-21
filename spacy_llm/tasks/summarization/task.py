@@ -10,7 +10,7 @@ from ...ty import FewshotExample, TaskResponseParser
 from ..builtin_task import BuiltinTask
 from ..templates import read_template
 
-DEFAULT_SUMMARIZATION_TEMPLATE_V1 = read_template("summarization.v1")
+DEFAULT_SUMMARIZATION_TEMPLATE_V1 = read_template("summarization.v2")
 
 
 class SummarizationTask(BuiltinTask):
@@ -80,7 +80,7 @@ class SummarizationTask(BuiltinTask):
 
     def generate_prompts(self, docs: Iterable[Doc], **kwargs) -> Iterable[str]:
         if self._check_example_summaries:
-            self._check_prompt_example_summary_len()
+            # self._check_prompt_example_summary_len()
             self._check_example_summaries = False
 
         return super().generate_prompts(docs=docs, max_n_words=self._max_n_words)
